@@ -2,6 +2,8 @@
   'use strict'
   var App = window.App || {};
   var $ = window.jQuery;
+  var SERVER_URL = 'http://pure-reaches-99147.heroku.com/favorited';
+  var remoteDS = new DataStore(SERVER_URL);
 
   function DataStore(url) {
     if (!url) {
@@ -35,6 +37,6 @@
 
   };
 
-  App.DataStore = DataStore;
+  App.DataStore = remoteDS;
   window.App = App;
 })(window);

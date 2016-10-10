@@ -1,5 +1,5 @@
 var data_value = '[db-data="value"]';
-var DataStore = new App.DataStore();
+var DataStore = App.DataStore;
 
 function load_database() {
     var rowData = DataStore.getAll();
