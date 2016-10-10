@@ -22,7 +22,9 @@
   };
 
   DataStore.prototype.getAll = function () {
-
+    $.get(this.serverUrl, function (serverResponse) {
+      console.log(serverResponse);
+    })
   };
 
   DataStore.prototype.remove = function (key) {
