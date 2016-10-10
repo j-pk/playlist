@@ -102,3 +102,5 @@ app.delete("/favorited/:id", function(req, res) {
     }
   });
 });
+
+var port=Number(process.env.PORT || 3000);
