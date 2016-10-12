@@ -2,7 +2,7 @@
   'use strict'
   var App = window.App || {};
   var $ = window.jQuery;
-  var SERVER_URL = location.host + '/favorited';
+  var SERVER_URL = '/';
   var remoteDS = new DataStore(SERVER_URL);
 
   function DataStore(url) {
@@ -19,7 +19,7 @@
         dataType: 'json',
         type: 'post',
         contentType: 'application/json',
-        data: $(this).serialize(),
+        data: {row=key, favorited=value},
         success: function( data, textStatus, jQxhr ){
             $('#response pre').html( data );
         },
