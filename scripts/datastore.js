@@ -2,7 +2,7 @@
   'use strict'
   var App = window.App || {};
   var $ = window.jQuery;
-  var SERVER_URL = 'https://pure-reaches-99147.heroku.com/favorited';
+  var SERVER_URL = location.host + '/favorited';
   var remoteDS = new DataStore(SERVER_URL);
 
   function DataStore(url) {
