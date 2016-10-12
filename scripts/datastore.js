@@ -14,8 +14,18 @@
   }
 
   DataStore.prototype.add = function (key, value) {
-    $.post(this.serverUrl, value, function (serverResponse) {
-      console.log(serverResponse);
+    $.ajax({
+        url: 'favorited',
+        dataType: 'json',
+        type: 'post',
+        contentType: 'application/json',
+        data: $(this).serialize(),
+        success: function( data, textStatus, jQxhr ){
+            $('#response pre').html( data );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
     });
   };
 
