@@ -1,10 +1,17 @@
 var express = require("express");
+var https = require('https');
+var fs = require('fs');
 var path = require("path");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 var FAVORITED_COLLECTION = "favorited";
+
+var options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
 
 var app = express();
 app.use(express.static(__dirname + "/"));
@@ -25,10 +32,9 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   console.log("Database connection ready");
 
   // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
+https.createServer(options, app).listen(process.env.PORT || 8080, function () {
+  var port = server.address().port;
+  console.log("App now running on port", port);
 });
 
 function handleError(res, reason, message, code) {
@@ -102,5 +108,3 @@ app.delete("/favorited/:id", function(req, res) {
     }
   });
 });
-
-var port=Number(process.env.PORT || 3000);
