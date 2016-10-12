@@ -1,7 +1,4 @@
 var express = require("express");
-var http = require('http');
-var https = require('https');
-var fs = require('fs');
 var path = require("path");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
@@ -9,18 +6,12 @@ var ObjectID = mongodb.ObjectID;
 
 var FAVORITED_COLLECTION = "favorited";
 
-var options = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
-};
-
 var app = express();
 app.use(express.static(__dirname + "/"));
 app.use(bodyParser.json());
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
-var port = (process.env.PORT || 8080)
 
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
@@ -34,8 +25,9 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   console.log("Database connection ready");
 
   // Initialize the app.
-  var server = https.createServer(options, app).listen(port, function(){
-    console.log("Express server listening on port " + port);
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
   });
 });
 
@@ -48,11 +40,6 @@ function handleError(res, reason, message, code) {
  *    GET: finds all contacts
  *    POST: creates a new contact
  */
-
-app.get('/', function (req, res) {
-   res.writeHead(200);
-   res.end("hello world\n");
-});
 
 app.get("/favorited", function(req, res) {
   db.collection(FAVORITED_COLLECTION).find({}).toArray(function(err, docs) {
