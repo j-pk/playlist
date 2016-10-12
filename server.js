@@ -33,8 +33,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 
   // Initialize the app.
 https.createServer(options, app).listen(process.env.PORT || 8080, function () {
-  var port = server.address().port;
-  console.log("App now running on port", port);
+  console.log("App now running on port");
 });
 
 function handleError(res, reason, message, code) {
