@@ -17,9 +17,12 @@
     $.ajax({
         url: 'favorited',
         dataType: 'json',
-        type: 'post',
+        type: 'POST',
         contentType: 'application/json',
-        data: {row=key, favorited=value},
+        data: JSON.stringify({
+          'row'=key, 
+          'favorited'=value
+        }),
         success: function( data, textStatus, jQxhr ){
             $('#response pre').html( data );
         },
