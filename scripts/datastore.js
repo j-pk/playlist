@@ -20,8 +20,8 @@
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
-          'row'=key, 
-          'favorited'=value
+          'row'='key',
+          'favorited'='value'
         }),
         success: function( data, textStatus, jQxhr ){
             $('#response pre').html( data );
