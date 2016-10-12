@@ -21,21 +21,22 @@ app.use(bodyParser.json());
 var db;
 
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
+mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, database) {
+    if (err) {
+        console.log(err);
+        process.exit(1);
+    }
 
-  // Save database object from the callback for reuse.
-  db = database;
-  console.log("Database connection ready");
+    // Save database object from the callback for reuse.
+    db = database;
+    console.log("Database connection ready");
 
-  // Initialize the app.
-https.createServer({
-   key: fs.readFileSync('key.pem'),
-   cert: fs.readFileSync('cert.pem')
-}, app).listen(process.env.PORT || 8080);
+    // Initialize the app.
+    https.createServer({
+        key: fs.readFileSync('key.pem'),
+        cert: fs.readFileSync('cert.pem')
+    }, app).listen(process.env.PORT || 8080);
+});
 
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
