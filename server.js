@@ -81,6 +81,8 @@ app.get("/favorited/:row", function(req, res) {
 });
 
 app.put("/favorited/:row", function(req, res) {
+  console.log(req);
+  console.log(res);
   var update = {
       favorited: req.body.favorited,
   };
