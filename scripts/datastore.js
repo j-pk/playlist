@@ -61,7 +61,7 @@
             console.log(errorThrown);
         },
         complete: function (data) {
-          update_values();
+          update_values(data);
         }
     });
     return callBack
