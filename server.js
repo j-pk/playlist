@@ -86,7 +86,7 @@ app.put("/favorited/:row", function(req, res) {
   };
   delete updateDoc._id;
 
-  db.collection(FAVORITED_COLLECTION).updateOne({row: new ObjectID(req.params.id)}, update, function(err, doc) {
+  db.collection(FAVORITED_COLLECTION).updateOne({row: new ObjectID(req.row)}, update, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to update favorited song");
     } else {
