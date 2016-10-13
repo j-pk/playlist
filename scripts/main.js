@@ -2,7 +2,7 @@ var data_value = '[db-data="value"]';
 var DataStore = App.DataStore;
 
 function load_database() {
-    var rowData = DataStore.getAll();
+    var rowData = DataStore.getAll(callBack);
     console.log(rowData);
     update_values(rowData);
 }
