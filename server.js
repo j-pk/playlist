@@ -47,6 +47,7 @@ app.get("/favorited", function(req, res) {
       handleError(res, err.message, "Failed to get contacts.");
     } else {
       res.status(200).json("FUCK");
+      res.send("FUCK");
     }
   });
 });
