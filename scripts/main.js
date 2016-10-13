@@ -11,7 +11,7 @@ function addClickHandler(output) {
     output.forEach(function(element, index) {
         element.addEventListener('click', function(event) {
             console.log(element, index);
-            DataStore.add(index, true);
+            DataStore.update(index, false);
         });
     });
 };

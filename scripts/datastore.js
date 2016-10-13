@@ -32,6 +32,25 @@
     });
   };
 
+  DataStore.prototype.update = function (key, value) {
+    $.ajax({
+        url: 'favorited/' + key,
+        dataType: 'json',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+          'row': key,
+          'favorited': value
+        }),
+        success: function(data, textStatus){
+            $('#response pre').html( data );
+        },
+        error: function(errorThrown){
+            console.log(errorThrown);
+        }
+    });
+  };
+
   DataStore.prototype.get = function (key) {
     $.ajax({
         url: 'favorited/' + key,
