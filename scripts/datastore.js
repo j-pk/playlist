@@ -48,19 +48,22 @@
   };
 
   DataStore.prototype.getAll = function () {
+    var callBack = "";
     return $.ajax({
         url: 'favorited/',
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        success: function(data) {
+        success: function(data){
             console.log(data);
-            update_values(data);
+            callBack = data;
         },
         error: function(errorThrown){
             console.log(errorThrown);
         }
     });
+    update_values(callBack);
+    return callBack;
   };
 
   DataStore.prototype.remove = function (key) {
