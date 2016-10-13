@@ -47,14 +47,14 @@
     });
   };
 
-  DataStore.prototype.getAll = function () {
+  DataStore.prototype.getAll = function (callBack) {
     $.ajax({
         url: 'favorited/',
         type: 'GET',
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
-            console.log(data);
+            callBack(JSON.parse(data));
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
