@@ -23,7 +23,7 @@
           'row': key,
           'favorited': value
         }),
-        success: function(data, textStatus, jQxhr){
+        success: function(data, textStatus){
             $('#response pre').html( data );
         },
         error: function(jqXhr, textStatus, errorThrown){
@@ -37,7 +37,7 @@
         url: 'favorited/' + key,
         type: 'GET',
         contentType: 'application/json',
-        success: function(data, textStatus, jQxhr){
+        success: function(data, textStatus){
             $('#response pre').html(data);
             console.log(data);
         },
@@ -54,12 +54,10 @@
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        success: function(data, textStatus, jQxhr){
+        success: function(data, textStatus){
             $('#response pre').html(data);
-            console.log(data);
-            console.log(textStatus);
-            console.log(jQxhr);
-            callBack = JSON.parse(textStatus.responseText);
+            console.log(data.responseJSON);
+            callBack = data.responseJSON;
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
