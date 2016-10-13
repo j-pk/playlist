@@ -62,7 +62,6 @@
             console.log(errorThrown);
         }
     });
-    window.location.reload();
     return callBack
   };
 
