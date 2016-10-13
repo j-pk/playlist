@@ -54,7 +54,7 @@
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
-            return JSON.parse(data);
+            return data;
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
