@@ -56,7 +56,10 @@
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
-            callBack = JSON.parse(data.responseJSON);
+            console.log(data);
+            console.log(textStatus);
+            console.log(jQxhr);
+            callBack = JSON.parse(textStatus.responseText);
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
