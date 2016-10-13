@@ -87,7 +87,7 @@ app.get("/favorited/:row", function(req, res) {
 app.put("/favorited/:row", function(req, res) {
     var
 
-    db.collection(FAVORITED_COLLECTION).find({row: req.row}, {favorited = req.body.favorited}, function(err, docs) {
+    db.collection(FAVORITED_COLLECTION).find({row: req.row}, {favorited: req.body.favorited}, function(err, docs) {
             if (err) {
                 handleError(res, err.message, "Failed to update favorited song");
             } else {
