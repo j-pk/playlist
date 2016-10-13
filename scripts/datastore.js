@@ -34,9 +34,8 @@
 
   DataStore.prototype.get = function (key) {
     $.ajax({
-        url: 'favorited',
+        url: 'favorited/' + key,
         type: 'GET',
-        data: key,
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
@@ -51,18 +50,14 @@
   DataStore.prototype.getAll = function () {
     $.ajax({
         url: 'favorited/',
-        dataType: 'json',
-        type: 'POST',
+        type: 'GET',
         contentType: 'application/json',
-        data: JSON.stringify({
-          'row': key,
-          'favorited': value
-        }),
-        success: function( data, textStatus, jQxhr ){
-            $('#response pre').html( data );
+        success: function(data, textStatus, jQxhr){
+            $('#response pre').html(data);
+            console.log(data);
         },
-        error: function( jqXhr, textStatus, errorThrown ){
-            console.log( errorThrown );
+        error: function(jqXhr, textStatus, errorThrown){
+            console.log(errorThrown);
         }
     });
   };
