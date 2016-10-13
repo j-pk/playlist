@@ -85,17 +85,13 @@ app.get("/favorited/:row", function(req, res) {
 });
 
 app.put("/favorited/:row", function(req, res) {
-    var updateValue = req.body.favorited
+    var
 
-    db.collection(FAVORITED_COLLECTION).find({row: req.row}, function(err, favorited) {
-        //update it
-        favorited.update({
-            favorited: updateValue
-        }, function(err, favoritedID) {
+    db.collection(FAVORITED_COLLECTION).find({row: req.row}, {favorited = req.body.favorited}, function(err, docs) {
             if (err) {
                 handleError(res, err.message, "Failed to update favorited song");
             } else {
-                res.status(200).json(favorited);
+                res.status(200).json(docs);
             }
         });
     });
