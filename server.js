@@ -84,7 +84,6 @@ app.put("/favorited/:row", function(req, res) {
   var update = {
       favorited: req.body.favorited,
   };
-  delete updateDoc._id;
 
   db.collection(FAVORITED_COLLECTION).updateOne({row: new ObjectID(req.row)}, update, function(err, doc) {
     if (err) {
