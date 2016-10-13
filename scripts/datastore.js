@@ -52,10 +52,11 @@
     return $.ajax({
         url: 'favorited/',
         type: 'GET',
+        dataType: 'json',
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
-            callBack = data
+            callBack = JSON.parse(data.responseJSON);
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
