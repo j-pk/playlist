@@ -53,6 +53,7 @@
         url: 'favorited/',
         type: 'GET',
         dataType: 'json',
+        async: false,
         contentType: 'application/json',
         success: function(data){
             console.log(data);
@@ -62,7 +63,7 @@
             console.log(errorThrown);
         }
     });
-    load_database();
+    load_database(callBack);
     return callBack;
   };
 
