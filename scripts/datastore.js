@@ -4,7 +4,7 @@
   var $ = window.jQuery;
   var SERVER_URL = '/';
   var remoteDS = new DataStore(SERVER_URL);
-
+  var callBack;
   function DataStore(url) {
     if (!url) {
       throw new Error('No remote URL supplied');
@@ -61,10 +61,6 @@
         }
     });
   };
-
-function callBack(data) {
-   console.log(data);
-}
 
   DataStore.prototype.remove = function (key) {
 
