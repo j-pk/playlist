@@ -55,13 +55,12 @@
         dataType: 'json',
         contentType: 'application/json',
         success: function(data){
+            callBack = JSON.parse(data);
             console.log(data);
         },
         error: function(errorThrown){
             console.log(errorThrown);
         }
-    }).done(function(data) {
-      callBack = JSON.parse(data);
     });
     return callBack
   };
