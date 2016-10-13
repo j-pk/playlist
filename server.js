@@ -94,7 +94,7 @@ app.put("/favorited/:row", function(req, res) {
           }
           else {
                 res.status(200).json(favorited);
-              });
+              }
            }
         })
     });
