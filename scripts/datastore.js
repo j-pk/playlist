@@ -62,6 +62,10 @@
     });
   };
 
+function callBack(data) {
+   console.log(data);
+}
+
   DataStore.prototype.remove = function (key) {
 
   };
