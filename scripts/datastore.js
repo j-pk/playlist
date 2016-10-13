@@ -39,15 +39,14 @@
   DataStore.prototype.getAll = function () {
     $.ajax({
         url: 'favorited',
-        dataType: 'json',
         type: 'GET',
         contentType: 'application/json',
-        success: function( data, textStatus, jQxhr ){
+        success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
-            console.log( errorThrown );
+            console.log(data);
         },
-        error: function( jqXhr, textStatus, errorThrown ){
-            console.log( errorThrown );
+        error: function(jqXhr, textStatus, errorThrown){
+            console.log(errorThrown);
         }
     });
   };
