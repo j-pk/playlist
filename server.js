@@ -42,12 +42,11 @@ function handleError(res, reason, message, code) {
  */
 
 app.get("/favorited", function(req, res) {
-  db.collection(FAVORITED_COLLECTION).find({}).toArray(function(err, docs) {
+  db.collection(FAVORITED_COLLECTION).find().toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");
     } else {
-      res.status(200).json("FUCK");
-      res.send("FUCK");
+      res.status(200).json(docs);
     }
   });
 });
