@@ -48,7 +48,6 @@
   };
 
   DataStore.prototype.getAll = function () {
-    var callBack = "";
     return $.ajax({
         url: 'favorited/',
         type: 'GET',
@@ -64,7 +63,6 @@
           update_values(data);
         }
     });
-    return callBack
   };
 
   DataStore.prototype.remove = function (key) {
