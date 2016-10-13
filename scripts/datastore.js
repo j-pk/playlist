@@ -56,12 +56,11 @@
         contentType: 'application/json',
         success: function(data){
             console.log(data);
+            callBack = data;
         },
         error: function(errorThrown){
             console.log(errorThrown);
         }
-    }).done(function(data) {
-        callBack = data;
     });
     return callBack
   };
