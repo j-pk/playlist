@@ -1,10 +1,11 @@
 var data_value = '[db-data="value"]';
 var DataStore = App.DataStore;
 
-function load_database(rowData) {
+function load_database() {
+    var rowData = DataStore.getAll();
     console.log(rowData);
     update_values(rowData);
-}
+};
 
 function addClickHandler(output) {
     output.forEach(function(element, index) {
@@ -13,7 +14,7 @@ function addClickHandler(output) {
             DataStore.add(index, true);
         });
     });
-}
+};
 
 function update_values(rowData) {
     window.onload = function() {

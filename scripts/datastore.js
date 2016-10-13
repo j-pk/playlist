@@ -63,7 +63,6 @@
             console.log(errorThrown);
         }
     });
-    load_database(callBack);
     return callBack;
   };
 
