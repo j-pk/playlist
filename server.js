@@ -82,7 +82,6 @@ app.get("/favorited/:row", function(req, res) {
 
 app.put("/favorited/:row", function(req, res) {
   console.log(req);
-  console.log(res);
   var update = {
       favorited: req.body.favorited,
   };
@@ -91,7 +90,7 @@ app.put("/favorited/:row", function(req, res) {
     if (err) {
       handleError(res, err.message, "Failed to update favorited song");
     } else {
-      res.status(204).end();
+      res.status(200).json(doc);
     }
   });
 });
