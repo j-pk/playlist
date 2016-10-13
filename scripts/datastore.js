@@ -26,7 +26,7 @@
         success: function(data, textStatus){
             $('#response pre').html( data );
         },
-        error: function(jqXhr, textStatus, errorThrown){
+        error: function(errorThrown){
             console.log(errorThrown);
         }
     });
@@ -41,7 +41,7 @@
             $('#response pre').html(data);
             console.log(data);
         },
-        error: function(jqXhr, textStatus, errorThrown){
+        error: function(errorThrown){
             console.log(errorThrown);
         }
     });
@@ -54,13 +54,14 @@
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        success: function(data, textStatus, response){
-            $('#response pre').html(data);
-            callBack = response.responseJSON;
+        success: function(data){
+            console.log(data);
         },
-        error: function(jqXhr, textStatus, errorThrown){
+        error: function(errorThrown){
             console.log(errorThrown);
         }
+    }).done(function(data) {
+      callBack = JSON.parse(data);
     });
     return callBack
   };
