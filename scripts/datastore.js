@@ -54,12 +54,14 @@
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        success: function(data){
+        success: function(data) {
             console.log(data);
-            $('.star').html(data);
         },
         error: function(errorThrown){
             console.log(errorThrown);
+        },
+        complete: function (data) {
+          initialize_properties();
         }
     });
     return callBack
