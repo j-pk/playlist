@@ -37,9 +37,19 @@
   };
 
   DataStore.prototype.getAll = function () {
-    $.get(this.serverUrl, function (serverResponse) {
-      console.log(serverResponse);
-    })
+    $.ajax({
+        url: 'favorited',
+        dataType: 'json',
+        type: 'GET',
+        contentType: 'application/json',
+        success: function( data, textStatus, jQxhr ){
+            $('#response pre').html(data);
+            console.log( errorThrown );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
+        }
+    });
   };
 
   DataStore.prototype.remove = function (key) {
