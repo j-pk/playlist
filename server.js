@@ -41,15 +41,9 @@ function handleError(res, reason, message, code) {
  *    POST: creates a new contact
  */
 
- app.get("/", function(req, res) {
-   db.collection(FAVORITED_COLLECTION).find({}).toArray(function(err, docs) {
-     if (err) {
-       handleError(res, err.message, "Failed to get favorited.");
-     } else {
-       res.json('{name: test}');
-     }
-   });
- });
+ app.get('/favorited', function(req, res){
+  res.send('hello world');
+});
 
 app.post("/favorited", function(req, res) {
   var newFavorite = req.body;
