@@ -3,7 +3,7 @@ var DataStore = App.DataStore;
 
 function load_database() {
     var rowData = DataStore.getAll();
-    console.log(rowData);
+    console.log(rowData.responseText);
     update_values(rowData);
 }
 
