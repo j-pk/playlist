@@ -11,8 +11,8 @@ function addClickHandler(output) {
 }
 
 function initialize_properties() {
+    var rowData = DataStore.getAll();   
     window.onload = function() {
-        var rowData = DataStore.getAll();
         console.log(rowData);
         var output = document.querySelectorAll(data_value);
         addClickHandler(output);
