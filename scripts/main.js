@@ -24,7 +24,7 @@ function update_values(rowData) {
             if (rowData === undefined) {
                 output[index].innerHTML = '<favorite-star/>';
             } else {
-                if (rowData[index] === true) {
+                if (rowData[index].favorited === true) {
                     output[index].innerHTML = '<favorite-star active/>';
                 } else {
                     output[index].innerHTML = '<favorite-star/>';
