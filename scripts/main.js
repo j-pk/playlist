@@ -1,11 +1,11 @@
 var data_value = '[db-data="value"]';
-var DataStore = App.DataStore;
+//var DataStore = App.DataStore;
 
 function addClickHandler(output) {
     output.forEach(function(element, index) {
         element.addEventListener('click', function(event) {
             console.log(element, index);
-            DataStore.add(index, true);
+            //DataStore.add(index, true);
         });
     });
 }
