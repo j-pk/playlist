@@ -3,9 +3,8 @@ var DataStore = App.DataStore;
 
 function load_database() {
     var rowData = DataStore.getAll();
-    var jsonData = JSON.parse(rowData.responseText);
-    console.log(jsonData);
-    update_values(jsonData);
+    console.log(rowData);
+    update_values(rowData);
 }
 
 function addClickHandler(output) {
