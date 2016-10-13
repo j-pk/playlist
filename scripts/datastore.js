@@ -33,13 +33,10 @@
   };
 
   DataStore.prototype.get = function (key) {
-
-  };
-
-  DataStore.prototype.getAll = function () {
     $.ajax({
         url: 'favorited',
         type: 'GET',
+        data: key
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
@@ -47,6 +44,25 @@
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
+        }
+    });
+  };
+
+  DataStore.prototype.getAll = function () {
+    $.ajax({
+        url: 'favorited/',
+        dataType: 'json',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+          'row': key,
+          'favorited': value
+        }),
+        success: function( data, textStatus, jQxhr ){
+            $('#response pre').html( data );
+        },
+        error: function( jqXhr, textStatus, errorThrown ){
+            console.log( errorThrown );
         }
     });
   };

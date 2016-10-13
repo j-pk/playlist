@@ -41,9 +41,15 @@ function handleError(res, reason, message, code) {
  *    POST: creates a new contact
  */
 
- app.get('/favorited', function(req, res){
-  res.send('hello world');
-});
+ app.get("/favorited", function(req, res) {
+   db.collection(FAVORITED_COLLECTION).find({}).toArray(function(err, docs) {
+     if (err) {
+       handleError(res, err.message, "Failed to get favorited.");
+     } else {
+       res.status(200).json(docs);
+     }
+   });
+ });
 
 app.post("/favorited", function(req, res) {
   var newFavorite = req.body;
@@ -65,7 +71,7 @@ app.post("/favorited", function(req, res) {
  */
 
 app.get("/favorited/:id", function(req, res) {
-  db.collection(FAVORITED_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+  db.collection(FAVORITED_COLLECTION).findOne({ row: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get favorited song");
     } else {
