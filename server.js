@@ -93,10 +93,7 @@ app.put("/favorited/:row", function(req, res) {
               handleError(res, err.message, "Failed to update favorited song");
           }
           else {
-                 //JSON responds showing the updated values
-                json: function(){
-                    res.json(favorited);
-                 }
+                res.status(200).json(favorited);
               });
            }
         })
