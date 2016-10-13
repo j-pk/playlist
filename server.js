@@ -41,16 +41,15 @@ function handleError(res, reason, message, code) {
  *    POST: creates a new contact
  */
 
-app.get("/favorited", function(req, res) {
-  db.collection(FAVORITED_COLLECTION).find().toArray(function(err, docs) {
-    if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
-    } else {
-      res.end('HELOLHWLEHRKLWHERLKW????');
-      res.status(200).json(docs);
-    }
-  });
-});
+ app.get("/favorited", function(req, res) {
+   db.collection(FAVORITED_COLLECTION).find({}).toArray(function(err, docs) {
+     if (err) {
+       handleError(res, err.message, "Failed to get favorited.");
+     } else {
+       res.json('{name: test}');
+     }
+   });
+ });
 
 app.post("/favorited", function(req, res) {
   var newFavorite = req.body;
