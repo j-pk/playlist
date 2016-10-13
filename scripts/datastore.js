@@ -36,7 +36,7 @@
     $.ajax({
         url: 'favorited',
         type: 'GET',
-        data: key
+        data: key,
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
