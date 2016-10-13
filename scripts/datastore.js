@@ -61,7 +61,7 @@
             console.log(errorThrown);
         },
         complete: function (data) {
-          initialize_properties();
+          update_values();
         }
     });
     return callBack
