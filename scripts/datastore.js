@@ -5,6 +5,7 @@
   var SERVER_URL = '/';
   var remoteDS = new DataStore(SERVER_URL);
   var callBack;
+
   function DataStore(url) {
     if (!url) {
       throw new Error('No remote URL supplied');
@@ -54,12 +55,13 @@
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
-            callBack(data);
+            callBack = data;
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
         }
     });
+    callBack(data);
   };
 
   DataStore.prototype.remove = function (key) {
