@@ -71,7 +71,7 @@ app.post("/favorited", function(req, res) {
  */
 
 app.get("/favorited/:row", function(req, res) {
-  db.collection(FAVORITED_COLLECTION).findOne({ row: new ObjectID(req.params.id) }, function(err, doc) {
+  db.collection(FAVORITED_COLLECTION).findOne({row: new ObjectID(req.params.id) }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get favorited song");
     } else {
@@ -84,7 +84,7 @@ app.put("/favorited/:row", function(req, res) {
   var updateDoc = req.body;
   delete updateDoc._id;
 
-  db.collection(FAVORITED_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+  db.collection(FAVORITED_COLLECTION).updateOne({row: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to update favorited song");
     } else {
