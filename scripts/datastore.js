@@ -61,7 +61,7 @@
             console.log(errorThrown);
         }
     });
-    callBack(data);
+    callBack(callBack);
   };
 
   DataStore.prototype.remove = function (key) {
