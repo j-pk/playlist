@@ -56,7 +56,7 @@
         contentType: 'application/json',
         success: function(data){
             console.log(data);
-            $("#[db-data="value"]").html(data);
+            $('#[db-data="value"]').html(data);
         },
         error: function(errorThrown){
             console.log(errorThrown);
