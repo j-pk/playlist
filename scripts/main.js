@@ -32,3 +32,5 @@ function update_values(rowData) {
         })
     }
 };
+
+load_database();
