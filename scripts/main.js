@@ -18,6 +18,7 @@ function addClickHandler(output) {
 
 function update_values(rowData) {
     window.onload = function() {
+        load_database()
         var output = document.querySelectorAll(data_value);
         addClickHandler(output);
         output.forEach(function(element, index) {
@@ -34,4 +35,4 @@ function update_values(rowData) {
     }
 };
 
-load_database();
+update_values();
