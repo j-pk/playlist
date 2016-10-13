@@ -54,9 +54,9 @@
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        success: function(data, textStatus){
+        success: function(data, textStatus, response){
             $('#response pre').html(data);
-            callBack = data.responseText;
+            callBack = response.responseJSON;
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
