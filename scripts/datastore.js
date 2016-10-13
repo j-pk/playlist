@@ -23,11 +23,11 @@
           'row': key,
           'favorited': value
         }),
-        success: function( data, textStatus, jQxhr ){
+        success: function(data, textStatus, jQxhr){
             $('#response pre').html( data );
         },
-        error: function( jqXhr, textStatus, errorThrown ){
-            console.log( errorThrown );
+        error: function(jqXhr, textStatus, errorThrown){
+            console.log(errorThrown);
         }
     });
   };
@@ -54,7 +54,7 @@
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
-            callBack(JSON.parse(data));
+            callBack(data);
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
