@@ -80,17 +80,14 @@ app.get("/favorited/:row", function(req, res) {
   });
 });
 
-app.put("/favorited/:id", function(req, res) {
-  var updateDoc = req.body;
-  delete updateDoc._id;
-
-  db.collection(FAVORITED_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to update favorited song");
-    } else {
-      res.status(204).end();
-    }
-  });
+app.put("/favorited/:row", function(req, res) {
+  var db = req.db;
+    var rowToUpdate = req.params.id;
+    db.collection(FAVORITED_COLLECTION).update({ row: ObjectId(rowToUpdate)}, req.body, function (err, result) {
+        res.send(
+            (err === null) ? {msg: ''} : {msg: err}
+        );
+    });
 });
 
 app.delete("/favorited/:id", function(req, res) {
