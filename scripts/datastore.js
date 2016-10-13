@@ -57,12 +57,12 @@
         success: function(data){
             console.log(data);
             callBack = data;
-            window.location.reload();
         },
         error: function(errorThrown){
             console.log(errorThrown);
         }
     });
+    window.location.reload();
     return callBack
   };
 
