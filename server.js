@@ -85,7 +85,6 @@ app.get("/favorited/:row", function(req, res) {
 });
 
 app.put("/favorited/:row", function(req, res) {
-    console.log(req);
     var updateValue = req.body.favorited
 
     db.collection(FAVORITED_COLLECTION).findById(req.row, function(err, favorited) {
