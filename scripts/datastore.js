@@ -49,7 +49,7 @@
 
   DataStore.prototype.getAll = function () {
     var callBack = "";
-    return $.ajax({
+    $.ajax({
         url: 'favorited/',
         type: 'GET',
         dataType: 'json',
@@ -62,7 +62,7 @@
             console.log(errorThrown);
         }
     });
-    update_values(callBack);
+    load_database();
     return callBack;
   };
 
