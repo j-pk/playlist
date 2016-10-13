@@ -4,7 +4,6 @@
   var $ = window.jQuery;
   var SERVER_URL = '/';
   var remoteDS = new DataStore(SERVER_URL);
-  var callBack;
 
   function DataStore(url) {
     if (!url) {
@@ -48,20 +47,19 @@
     });
   };
 
-  DataStore.prototype.getAll = function (callBack) {
+  DataStore.prototype.getAll = function () {
     $.ajax({
         url: 'favorited/',
         type: 'GET',
         contentType: 'application/json',
         success: function(data, textStatus, jQxhr){
             $('#response pre').html(data);
-            callBack = data;
+            return JSON.parse(data));
         },
         error: function(jqXhr, textStatus, errorThrown){
             console.log(errorThrown);
         }
     });
-    callBack(callBack);
   };
 
   DataStore.prototype.remove = function (key) {
