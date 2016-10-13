@@ -55,12 +55,10 @@
         contentType: 'application/json',
         success: function(data) {
             console.log(data);
+            update_values(data);
         },
         error: function(errorThrown){
             console.log(errorThrown);
-        },
-        complete: function (data) {
-          update_values(data);
         }
     });
   };
