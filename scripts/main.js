@@ -12,7 +12,7 @@ function addClickHandler(output) {
         element.addEventListener('click', function(event) {
             console.log(element, index);
             var found = $(element).filter("[active]");
-            console.log(element);
+            console.log(found);
             if (found) {
               DataStore.update(index, false);
               console.log('false');
