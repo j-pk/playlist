@@ -82,10 +82,12 @@ app.get("/favorited/:row", function(req, res) {
 
 app.put("/favorited/:row", function(req, res) {
   var update = {
-      "favorited": false,
+    $set: {
+      "favorited": false
+    }
   };
 
-  db.collection(FAVORITED_COLLECTION).updateOne({"row": req.params.id}, update, function(err, doc) {
+  db.collection(FAVORITED_COLLECTION).updateOne({"row": req.params.row}, update, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to update favorited song");
     } else {
