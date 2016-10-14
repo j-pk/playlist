@@ -11,14 +11,14 @@ function addClickHandler(output) {
     output.forEach(function(element, index) {
         element.addEventListener('click', function(event) {
             console.log(element, index);
-            var found = $(element).filter('[active=""]');
-            console.log(found);
-            if (found) {
+            if (element.hasAttribute("favorited")) {
+              DataStore.update(index, true);
+              element.setAttribute('id', 'notFavorited');
+              console.log('true');
+            } else {
               DataStore.update(index, false);
               console.log('false');
-            } else {
-              DataStore.update(index, true);
-              console.log('true');
+              element.setAttribute('id', 'favorited');
             }
         });
     });
@@ -34,8 +34,10 @@ function update_values(rowData) {
             } else {
                 if (rowData[index].favorited === true) {
                     output[index].innerHTML = '<favorite-star active/>';
+                    output[index].setAttribute('id', 'favorited');
                 } else {
                     output[index].innerHTML = '<favorite-star/>';
+                    output[index].setAttribute('id', 'notFavorited');
                 }
             }
         })
