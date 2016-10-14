@@ -96,7 +96,7 @@ app.put("/favorited/:id", function(req, res) {
       handleError(res, err.message, "Failed to update favorited song");
     } else {
       console.log(result.ops);
-      res.status(204).json(result.ops);
+      res.status(200).json(result.ops);
     }
   });
 
