@@ -11,7 +11,11 @@ function addClickHandler(output) {
     output.forEach(function(element, index) {
         element.addEventListener('click', function(event) {
             console.log(element, index);
-            DataStore.update(index, false);
+            if (element.querySelector('<favorite-star active/>')) {
+              DataStore.update(index, false);
+            } else {
+              DataStore.update(index, true);
+            }
         });
     });
 };
