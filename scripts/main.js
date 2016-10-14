@@ -11,7 +11,7 @@ function addClickHandler(output) {
     output.forEach(function(element, index) {
         element.addEventListener('click', function(event) {
             console.log(element, index);
-            var found = $(element).filter("[active]");
+            var found = $(element).filter("[favorite-star active]");
             if (found) {
               DataStore.update(index, false);
               console.log('false');
