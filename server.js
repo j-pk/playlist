@@ -80,14 +80,14 @@ app.get("/favorited/:row", function(req, res) {
   });
 });
 
-app.put("/favorited/:row", function(req, res) {
+app.put("/favorited/:id", function(req, res) {
   var update = {
     $set: {
       "favorited": false
     }
   };
 
-  db.collection(FAVORITED_COLLECTION).updateOne({"row": req.params.row}, update, function(err, doc) {
+  db.collection(FAVORITED_COLLECTION).updateOne({"row": req.id}, update, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to update favorited song");
     } else {
