@@ -63,7 +63,7 @@ app.post("/favorited", function(req, res) {
       if (err) {
         handleError(res, err.message, "Failed to remove favorite song");
       }
-    });
+    };
   } else {
     db.collection(FAVORITED_COLLECTION).insertOne(favorited, function(err, doc) {
       if (err) {
