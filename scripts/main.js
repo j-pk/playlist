@@ -27,7 +27,7 @@ function update_values(rowData) {
         var output = document.querySelectorAll(data_value);
         addClickHandler(output);
         output.forEach(function(element, index) {
-            if (rowData === undefined || rowData[index].favorited === undefined) {
+            if (rowData === undefined || rowData[index] === undefined) {
                 output[index].innerHTML = '<favorite-star/>';
             } else {
                 if (rowData[index].favorited === true) {
