@@ -54,25 +54,17 @@ function handleError(res, reason, message, code) {
 app.post("/favorited", function(req, res) {
   var favorited = req.body;
 
-  var row = db.collection(FAVORITED_COLLECTION).find({
-      row: req.body.row
+  db.collection(FAVORITED_COLLECTION).findOneAndDelete({
+      "row": req.body.row
   });
 
-  if (row) {
-    db.collection(FAVORITED_COLLECTION).deleteOne({ row: req.body.row }), function(err, doc) {
-      if (err) {
-        handleError(res, err.message, "Failed to remove favorite song");
-      }
-    };
-  } else {
-    db.collection(FAVORITED_COLLECTION).insertOne(favorited, function(err, doc) {
-      if (err) {
-        handleError(res, err.message, "Failed to favorite song");
-      } else {
-        res.status(201).json(doc.ops[0]);
-      }
-    });
-  }
+  db.collection(FAVORITED_COLLECTION).insertOne(favorited, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to favorite song");
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
 });
 
 /*  "/contacts/:id"
