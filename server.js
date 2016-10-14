@@ -42,7 +42,7 @@ function handleError(res, reason, message, code) {
  */
 
  app.get("/favorited", function(req, res) {
-   db.collection(FAVORITED_COLLECTION).find({}).toArray(function(err, docs) {
+   db.collection(FAVORITED_COLLECTION).find({}).sort({row: 1}).toArray(function(err, docs) {
      if (err) {
        handleError(res, err.message, "Failed to get favorited.");
      } else {
