@@ -74,7 +74,7 @@ app.post("/favorited", function(req, res) {
  */
 
 app.get("/favorited/:row", function(req, res) {
-  db.collection(FAVORITED_COLLECTION).findOne({row: new ObjectID(req.params.id) }, function(err, doc) {
+  db.collection(FAVORITED_COLLECTION).findOne({row: req.body.row }, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get favorited song");
     } else {
@@ -83,18 +83,8 @@ app.get("/favorited/:row", function(req, res) {
   });
 });
 
-app.put("/favorited/:id", function(req, res) {
-  var favoriteValue = {
-    $set: {
-      "favorited": false
-    }
-  };
-
-  var findRow = {
-    "row": req.row
-  };
-
-  db.collection(FAVORITED_COLLECTION).update(findRow, favoriteValue, function(err, result) {
+app.put("/favorited/:row", function(req, res) {
+  db.collection(FAVORITED_COLLECTION).updateOne({row: req.body.row }, {favorited: req.body.favorited}, function(err, result) {
     if (err) {
       handleError(res, err.message, "Failed to update favorited song");
     } else {
@@ -113,7 +103,7 @@ app.put("/favorited/:id", function(req, res) {
 });
 
 app.delete("/favorited/:id", function(req, res) {
-  db.collection(FAVORITED_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+  db.collection(FAVORITED_COLLECTION).deleteOne({row: req.body.row}, function(err, result) {
     if (err) {
       handleError(res, err.message, "Failed to delete favorited song");
     } else {
