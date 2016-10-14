@@ -14,10 +14,8 @@ function addClickHandler(output) {
             if (element.id === "notFavorited") {
               DataStore.update(index, true);
               element.setAttribute('id', 'notFavorited');
-              console.log('true');
             } else {
               DataStore.update(index, false);
-              console.log('false');
               element.setAttribute('id', 'favorited');
             }
         });

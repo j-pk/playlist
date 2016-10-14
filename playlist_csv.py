@@ -11,9 +11,9 @@ with open("baileys_playlist.csv", "r", encoding="utf-8") as bk_file:
         bk_temp = []
         pk_temp = []
         for bk_row in bk_data:
-            bk_temp.append({'song': bk_row[1].rsplit('-', 1)[0], 'artist': bk_row[2]})
+            bk_temp.append({'uri': bk_row[0].split(':')[2], 'song': bk_row[1].rsplit('-', 1)[0], 'artist': bk_row[2]})
             for pk_row in pk_data:
-                pk_temp.append({'song': pk_row[1].rsplit('-', 1)[0], 'artist': pk_row[2]})
+                pk_temp.append({'uri': pk_row[0].split(':')[2], 'song': pk_row[1].rsplit('-', 1)[0], 'artist': pk_row[2]})
 
         bk_temp.pop(0)
         pk_temp.pop(0)
@@ -27,7 +27,7 @@ with open("baileys_playlist.csv", "r", encoding="utf-8") as bk_file:
                 bk_temp.remove(bk)
                 pk_temp.remove(pk)
 
-        with open('comparison_results.html', 'w', encoding="utf-8") as results:
+        with open('comparison_results_v2.html', 'w', encoding="utf-8") as results:
             results.write(tabulate(match_song_list, headers='keys', stralign='left', tablefmt="html"))
             results.write(tabulate(bk_temp, headers='keys', stralign='left', tablefmt="html"))
             results.write(tabulate(pk_temp, headers='keys', stralign='left', tablefmt="html"))

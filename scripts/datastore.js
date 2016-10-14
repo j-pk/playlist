@@ -9,7 +9,6 @@
     if (!url) {
       throw new Error('No remote URL supplied');
     }
-
     this.serverUrl = url;
   }
 
@@ -86,11 +85,18 @@
   };
 
   DataStore.prototype.remove = function (key) {
-
-  };
-
-  DataStore.prototype.removeAll = function () {
-
+    $.ajax({
+        url: 'favorited/' + key,
+        type: 'DELETE',
+        contentType: 'application/json',
+        success: function(data, textStatus){
+            $('#response pre').html(data);
+            console.log(data);
+        },
+        error: function(errorThrown){
+            console.log(errorThrown);
+        }
+    });
   };
 
   App.DataStore = remoteDS;

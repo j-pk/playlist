@@ -34,12 +34,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
   res.status(code || 500).json({"error": message});
-}
-
-/*  "/contacts"
- *    GET: finds all contacts
- *    POST: creates a new contact
- */
+};
 
  app.get("/favorited", function(req, res) {
    db.collection(FAVORITED_COLLECTION).find({}).sort({row: 1}).toArray(function(err, docs) {
@@ -67,12 +62,6 @@ app.post("/favorited", function(req, res) {
   });
 });
 
-/*  "/contacts/:id"
- *    GET: find contact by id
- *    PUT: update contact by id
- *    DELETE: deletes contact by id
- */
-
 app.get("/favorited/:row", function(req, res) {
   db.collection(FAVORITED_COLLECTION).findOne({row: req.body.row }, function(err, doc) {
     if (err) {
@@ -81,25 +70,6 @@ app.get("/favorited/:row", function(req, res) {
       res.status(200).json(doc);
     }
   });
-});
-
-app.put("/favorited/:row", function(req, res) {
-  db.collection(FAVORITED_COLLECTION).updateOne({row: req.body.row }, {favorited: req.body.favorited}, function(err, result) {
-    if (err) {
-      handleError(res, err.message, "Failed to update favorited song");
-    } else {
-      console.log(result.ops);
-      res.status(200).json(result.ops);
-    }
-  });
-
-  // db.collection(FAVORITED_COLLECTION).updateOne({row: req.id}, update, function(err, doc) {
-  //   if (err) {
-  //     handleError(res, err.message, "Failed to update favorited song");
-  //   } else {
-  //     res.status(204).end();
-  //   }
-  // });
 });
 
 app.delete("/favorited/:id", function(req, res) {
