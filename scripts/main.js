@@ -11,7 +11,7 @@ function addClickHandler(output) {
     output.forEach(function(element, index) {
         element.addEventListener('click', function(event) {
             console.log(element, index);
-            if (element.hasAttribute("favorited")) {
+            if (element.id === "favorited") {
               DataStore.update(index, true);
               element.setAttribute('id', 'notFavorited');
               console.log('true');
