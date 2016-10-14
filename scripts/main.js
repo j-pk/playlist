@@ -11,7 +11,7 @@ function addClickHandler(output) {
     output.forEach(function(element, index) {
         element.addEventListener('click', function(event) {
             console.log(element, index);
-            var found = $(element).filter("[active]");
+            var found = $(element).filter("[active=""]");
             console.log(found);
             if (found) {
               DataStore.update(index, false);
