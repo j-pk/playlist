@@ -82,7 +82,7 @@ app.get("/favorited/:row", function(req, res) {
 
 app.put("/favorited/:row", function(req, res) {
   var update = {
-      "favorited": req.body.favorited,
+      "favorited": false,
   };
 
   db.collection(FAVORITED_COLLECTION).updateOne({"row": req.row}, update, function(err, doc) {
