@@ -34,7 +34,7 @@
 
   DataStore.prototype.update = function (key, value) {
     $.ajax({
-        url: 'favorited/' + key,
+        url: 'favorited/' + key + '/',
         dataType: 'json',
         type: 'POST',
         contentType: 'application/json',
