@@ -26,6 +26,7 @@ function update_values(rowData) {
     window.onload = function() {
         var output = document.querySelectorAll(data_value);
         addClickHandler(output);
+        update_counter(output);
         console.log(update_counter(output));
         output.forEach(function(element, index) {
             if (rowData === undefined || rowData[index] === undefined) {
@@ -50,6 +51,7 @@ function update_counter(output) {
       counter += 1
     }
   });
+  console.log(counter);
   return counter;
 };
 
