@@ -26,6 +26,7 @@ function update_values(rowData) {
     window.onload = function() {
         var output = document.querySelectorAll(data_value);
         addClickHandler(output);
+        console.log(update_counter(output));
         output.forEach(function(element, index) {
             if (rowData === undefined || rowData[index] === undefined) {
                 output[index].innerHTML = '<favorite-star/>';
@@ -40,6 +41,16 @@ function update_values(rowData) {
             }
         })
     }
+};
+
+function update_counter(output) {
+  var counter = 0;
+  output.forEach(function(element, index) {
+    if (element.id === "favorited") {
+      counter += 1
+    }
+  }
+  return counter;
 };
 
 load_database();
