@@ -49,7 +49,7 @@ function update_counter(output) {
     if (element.id === "favorited") {
       counter += 1
     }
-  }
+  });
   return counter;
 };
 
