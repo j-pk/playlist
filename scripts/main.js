@@ -48,18 +48,19 @@ function update_values(rowData) {
                 }
             }
         });
-        update_counter(max_counter - favorited_counter);
-        sticky_counter(remaining_count);
+        remaining_count = max_counter - favorited_counter
+        update_counter(remaining_count);
+        sticky_counter();
     }
 };
 
 function update_counter(favorited_counter) {
   var bar = document.getElementById('counter');
-  var count = max_counter - favorited_counter;
+  var count = remaining_count - favorited_counter;
   bar.textContent = count;
 }
 
-function sticky_counter(remaining_count) {
+function sticky_counter() {
   var startProductBarPos = -1;
   window.onscroll = function() {
       var bar = document.getElementById('counter');
