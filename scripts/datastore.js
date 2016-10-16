@@ -73,7 +73,6 @@
         async: false,
         contentType: 'application/json',
         success: function(data){
-            console.log(data);
             callBack = data;
         },
         error: function(errorThrown){
