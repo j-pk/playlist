@@ -49,9 +49,9 @@ function update_counter(output) {
   output.forEach(function(element, index) {
     if (element.id === "favorited") {
       counter += 1
+      console.log(element.id);
     }
   });
-  console.log(counter);
   return counter;
 };
 
