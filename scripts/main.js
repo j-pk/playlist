@@ -5,6 +5,7 @@ function load_database() {
     var rowData = DataStore.getAll();
     console.log(rowData);
     update_values(rowData);
+    console.log(rowData.length);
 };
 
 function addClickHandler(output) {
@@ -14,8 +15,6 @@ function addClickHandler(output) {
             if (element.id === "notFavorited") {
               DataStore.update(index, true);
               element.setAttribute('id', 'notFavorited');
-              var counter = output.length - 1;
-              console.log(counter);
             } else {
               DataStore.update(index, false);
               element.setAttribute('id', 'favorited');
