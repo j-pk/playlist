@@ -16,13 +16,13 @@ function addClickHandler(output) {
               DataStore.update(index, true);
               element.setAttribute('id', 'notFavorited');
             } else {
-              counter += 1
+              counter++ ;
+              console.log(counter);
               DataStore.update(index, false);
               element.setAttribute('id', 'favorited');
             }
         });
     });
-    console.log(counter);
 };
 
 function update_values(rowData) {
