@@ -53,9 +53,10 @@ function update_values(rowData) {
     }
 };
 
-function update_counter(remaining_count) {
+function update_counter(favorited_counter) {
   var bar = document.getElementById('counter');
-  bar.textContent = remaining_count;
+  var count = max_counter - favorited_counter;
+  bar.textContent = count;
 }
 
 function sticky_counter(remaining_count) {
