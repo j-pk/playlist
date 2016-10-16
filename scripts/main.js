@@ -7,7 +7,12 @@ function load_database() {
     console.log(rowData);
     update_values(rowData);
     counter = rowData.length;
-    console.log(counter);
+    rowData.forEach(function(element, index) {
+      if (element.id === "favorited") {
+        counter -= 1;
+        console.log(counter);
+      }
+    });
 };
 
 function addClickHandler(output) {
@@ -36,14 +41,12 @@ function update_values(rowData) {
                 if (rowData[index].favorited === true) {
                     output[index].innerHTML = '<favorite-star active/>';
                     output[index].setAttribute('id', 'favorited');
-                    counter - 1;
                 } else {
                     output[index].innerHTML = '<favorite-star/>';
                     output[index].setAttribute('id', 'notFavorited');
                 }
             }
         });
-        console.log(counter);
     }
 };
 
