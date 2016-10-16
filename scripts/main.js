@@ -5,6 +5,8 @@ function load_database() {
     var rowData = DataStore.getAll();
     console.log(rowData);
     update_values(rowData);
+    var blah = update_counter(rowData);
+    console.log(blah);
 };
 
 function addClickHandler(output) {
@@ -26,8 +28,6 @@ function update_values(rowData) {
     window.onload = function() {
         var output = document.querySelectorAll(data_value);
         addClickHandler(output);
-        var blah = update_counter(rowData);
-        console.log(blah);
         output.forEach(function(element, index) {
             if (rowData === undefined || rowData[index] === undefined) {
                 output[index].innerHTML = '<favorite-star/>';
