@@ -1,11 +1,13 @@
 var data_value = '[db-data="value"]';
 var DataStore = App.DataStore;
+var counter = 0;
 
 function load_database() {
     var rowData = DataStore.getAll();
     console.log(rowData);
     update_values(rowData);
-    console.log(rowData.length);
+    counter = rowData.length;
+    console.log(counter);
 };
 
 function addClickHandler(output) {
@@ -34,12 +36,14 @@ function update_values(rowData) {
                 if (rowData[index].favorited === true) {
                     output[index].innerHTML = '<favorite-star active/>';
                     output[index].setAttribute('id', 'favorited');
+                    counter - 1;
                 } else {
                     output[index].innerHTML = '<favorite-star/>';
                     output[index].setAttribute('id', 'notFavorited');
                 }
             }
-        })
+        });
+        console.log(counter);
     }
 };
 
