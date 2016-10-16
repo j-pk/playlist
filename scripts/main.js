@@ -26,9 +26,8 @@ function update_values(rowData) {
     window.onload = function() {
         var output = document.querySelectorAll(data_value);
         addClickHandler(output);
-        var blah = update_counter(output);
+        var blah = update_counter(rowData);
         console.log(blah);
-        console.log(update_counter(output));
         output.forEach(function(element, index) {
             if (rowData === undefined || rowData[index] === undefined) {
                 output[index].innerHTML = '<favorite-star/>';
