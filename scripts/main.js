@@ -1,6 +1,7 @@
 var data_value = '[db-data="value"]';
 var DataStore = App.DataStore;
-var counter = 0;
+var total_counter = 0;
+var favorited_counter = 0;
 
 function load_database() {
     var rowData = DataStore.getAll();
@@ -35,8 +36,8 @@ function update_values(rowData) {
                 if (rowData[index].favorited === true) {
                     output[index].innerHTML = '<favorite-star active/>';
                     output[index].setAttribute('id', 'favorited');
-                    counter -= 1;
-                    console.log(counter);
+                    favorited_counter += 1;
+                    console.log(favorited_counter);
                 } else {
                     output[index].innerHTML = '<favorite-star/>';
                     output[index].setAttribute('id', 'notFavorited');
