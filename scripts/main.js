@@ -2,6 +2,7 @@ var data_value = '[db-data="value"]';
 var DataStore = App.DataStore;
 var max_counter = 75;
 var favorited_counter = 0;
+var remaining_count = 0;
 
 function load_database() {
     var rowData = DataStore.getAll();
@@ -17,9 +18,13 @@ function addClickHandler(output) {
             if (element.id === "notFavorited") {
               DataStore.update(index, true);
               element.setAttribute('id', 'notFavorited');
+              favorited_counter -= 1;
+              update_counter(favorited_counter);
             } else {
               DataStore.update(index, false);
               element.setAttribute('id', 'favorited');
+              favorited_counter += 1;
+              update_counter(favorited_counter);
             }
         });
     });
@@ -43,17 +48,20 @@ function update_values(rowData) {
                 }
             }
         });
-        var remaining_count = (max_counter - favorited_counter);
+        update_counter(max_counter - favorited_counter);
         sticky_counter(remaining_count);
-        console.log();
     }
 };
+
+function update_counter(remaining_count) {
+  var bar = document.getElementById('counter');
+  bar.textContent = remaining_count;
+}
 
 function sticky_counter(remaining_count) {
   var startProductBarPos = -1;
   window.onscroll = function() {
       var bar = document.getElementById('counter');
-      bar.textContent = remaining_count;
       if (startProductBarPos <  0)startProductBarPos = findPosY(bar);
 
       if (pageYOffset > startProductBarPos){
