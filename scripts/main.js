@@ -7,12 +7,12 @@ function load_database() {
     console.log(rowData);
     update_values(rowData);
     counter = rowData.length;
-    rowData.forEach(function(element, index) {
-      if (element.id === "favorited") {
+    for (var i = 0; i < rowData.length; i++) {
+      if rowData[i].favorited === true {
         counter -= 1;
-        console.log(counter);
       }
-    });
+      console.log(counter);
+    }
 };
 
 function addClickHandler(output) {
