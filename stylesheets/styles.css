@@ -40,3 +40,14 @@ table, th, td {
 .logo-text {
   text-align: center;
 }
+
+.counter {
+border-width:1px;
+
+text-align:center;
+
+z-index:9999;
+width:100%;
+max-width: 850px;
+margin: 0 auto;
+}

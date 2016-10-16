@@ -43,8 +43,40 @@ function update_values(rowData) {
                 }
             }
         });
-        console.log((max_counter - favorited_counter));
+        var remaining_count = (max_counter - favorited_counter);
+        sticky_counter(remaining_count);
+        console.log();
     }
+};
+
+function sticky_counter(remaining_count) {
+  var startProductBarPos = -1;
+  window.onscroll = function() {
+      var bar = document.getElementById('counter');
+      bar.textContent = remaining_count;
+      if (startProductBarPos <  0)startProductBarPos = findPosY(bar);
+
+      if (pageYOffset > startProductBarPos){
+          bar.style.position = 'fixed';
+          bar.style.top = 0;
+      } else{
+          bar.style.position = 'relative';
+      }
+  };
+};
+
+function findPosY(obj) {
+    var curtop = 0;
+    if (typeof (obj.offsetParent) != 'undefined' && obj.offsetParent) {
+        while (obj.offsetParent) {
+            curtop += obj.offsetTop;
+            obj = obj.offsetParent;
+        }
+        curtop += obj.offsetTop;
+    }
+    else if (obj.y)
+        curtop += obj.y;
+    return curtop;
 };
 
 load_database();
