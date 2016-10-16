@@ -8,7 +8,7 @@ function load_database() {
     update_values(rowData);
     counter = rowData.length;
     for (var i = 0; i < rowData.length; i++) {
-      if rowData[i].favorited === true {
+      if (rowData[i].favorited === true) {
         counter -= 1;
       }
       console.log(counter);
