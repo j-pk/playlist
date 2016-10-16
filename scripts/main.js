@@ -7,12 +7,6 @@ function load_database() {
     console.log(rowData);
     update_values(rowData);
     counter = rowData.length;
-    for (var i = 0; i < rowData.length; i++) {
-      if (rowData[i].favorited === true) {
-        counter -= 1;
-      }
-      console.log(counter);
-    }
 };
 
 function addClickHandler(output) {
@@ -41,6 +35,8 @@ function update_values(rowData) {
                 if (rowData[index].favorited === true) {
                     output[index].innerHTML = '<favorite-star active/>';
                     output[index].setAttribute('id', 'favorited');
+                    counter -= 1;
+                    console.log(counter);
                 } else {
                     output[index].innerHTML = '<favorite-star/>';
                     output[index].setAttribute('id', 'notFavorited');
