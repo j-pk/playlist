@@ -1,6 +1,6 @@
 var data_value = '[db-data="value"]';
 var DataStore = App.DataStore;
-var total_counter = 0;
+var max_counter = 75;
 var favorited_counter = 0;
 
 function load_database() {
@@ -37,13 +37,13 @@ function update_values(rowData) {
                     output[index].innerHTML = '<favorite-star active/>';
                     output[index].setAttribute('id', 'favorited');
                     favorited_counter += 1;
-                    console.log(favorited_counter);
                 } else {
                     output[index].innerHTML = '<favorite-star/>';
                     output[index].setAttribute('id', 'notFavorited');
                 }
             }
         });
+        console.log((max_counter - favorited_counter));
     }
 };
 
