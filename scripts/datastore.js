@@ -23,7 +23,7 @@
           'favorited': value
         }),
         success: function(data, textStatus){
-            $('#response pre').html( data );
+            console.log(data);
         },
         error: function(errorThrown){
             console.log(errorThrown);
@@ -42,7 +42,7 @@
           'favorited': value
         }),
         success: function(data, textStatus){
-            $('#response pre').html( data );
+            console.log(data);
         },
         error: function(errorThrown){
             console.log(errorThrown);
@@ -56,7 +56,6 @@
         type: 'GET',
         contentType: 'application/json',
         success: function(data, textStatus){
-            $('#response pre').html(data);
             console.log(data);
         },
         error: function(errorThrown){
@@ -90,7 +89,6 @@
         type: 'DELETE',
         contentType: 'application/json',
         success: function(data, textStatus){
-            $('#response pre').html(data);
             console.log(data);
         },
         error: function(errorThrown){
