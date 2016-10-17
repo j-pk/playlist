@@ -56,7 +56,7 @@ function update_values(rowData) {
 function update_counter(favorited_counter) {
   var bar = document.getElementById('counter');
   remaining_count = max_counter - favorited_counter;
-  bar.textContent = remaining_count;
+  bar.textContent = 'Remaining: ' + remaining_count;
 }
 
 function sticky_counter() {
