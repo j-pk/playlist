@@ -42,12 +42,12 @@ table, th, td {
 }
 
 .counter {
-  padding: -10px;
+border-right: 20px solid transparent;
 
-  text-align:right;;
-  font-size: 20px;
+text-align:right;;
+font-size: 20px;
 
-  z-index:9999;
-  width:100%;
-  margin: 0 auto;
+z-index:9999;
+width:100%;
+margin: 0 auto;
 }
