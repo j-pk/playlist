@@ -42,12 +42,10 @@ table, th, td {
 }
 
 .counter {
-  border-right: 20px solid transparent;
-
-  text-align:right;;
+  text-align:right;
   font-size: 20px;
 
   z-index:9999;
   width:100%;
-  margin: 0 auto;
+  margin: 0 auto; right: 20px;
 }
