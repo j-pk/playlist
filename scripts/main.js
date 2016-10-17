@@ -18,12 +18,12 @@ function addClickHandler(output) {
             if (element.id === "notFavorited") {
               DataStore.update(index, true);
               element.setAttribute('id', 'notFavorited');
-              favorited_counter -= 1;
+              favorited_counter += 1;
               update_counter(favorited_counter);
             } else {
               DataStore.update(index, false);
               element.setAttribute('id', 'favorited');
-              favorited_counter += 1;
+              favorited_counter -= 1;
               update_counter(favorited_counter);
             }
         });
@@ -48,16 +48,15 @@ function update_values(rowData) {
                 }
             }
         });
-        remaining_count = max_counter - favorited_counter
-        update_counter(remaining_count);
+        update_counter(favorited_counter);
         sticky_counter();
     }
 };
 
 function update_counter(favorited_counter) {
   var bar = document.getElementById('counter');
-  var count = remaining_count - favorited_counter;
-  bar.textContent = count;
+  remaining_count = max_counter - favorited_counter;
+  bar.textContent = remaining_count;
 }
 
 function sticky_counter() {
