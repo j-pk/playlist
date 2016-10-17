@@ -18,7 +18,6 @@ function addClickHandler(output) {
             if (element.id === "notFavorited") {
               DataStore.update(index, true);
               element.setAttribute('id', 'notFavorited');
-              favorited_counter += 1;
               update_counter(favorited_counter);
             } else {
               DataStore.update(index, false);
