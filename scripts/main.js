@@ -63,12 +63,12 @@ function sticky_counter() {
   var startProductBarPos = -1;
   window.onscroll = function() {
       var bar = document.getElementById('counter');
-      if (startProductBarPos <  0)startProductBarPos = findPosY(bar);
+      if (startProductBarPos <  0) startProductBarPos = findPosY(bar);
 
       if (pageYOffset > startProductBarPos){
           bar.style.position = 'fixed';
           bar.style.top = 0;
-      } else{
+      } else {
           bar.style.position = 'relative';
       }
   };
