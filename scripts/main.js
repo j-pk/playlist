@@ -68,7 +68,6 @@ function sticky_counter() {
       if (pageYOffset > startProductBarPos){
           bar.style.position = 'fixed';
           bar.style.top = 20;
-          bar.style.right = 20;
       } else {
           bar.style.position = 'relative';
       }
